@@ -3,20 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
-import { TutorialDatailsComponent } from './components/tutorial-datails/tutorial-datails.component';
-import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
+
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { BooksListComponent } from './components/books-list/books-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddTutorialComponent,
-    TutorialDatailsComponent,
-    TutorialsListComponent
+    AddBookComponent,
+    BookDetailsComponent,
+    BooksListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
