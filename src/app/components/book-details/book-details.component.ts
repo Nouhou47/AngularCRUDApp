@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-
+  currentBook = null;
+  message = '';
+  
   constructor() { }
 
   ngOnInit(): void {

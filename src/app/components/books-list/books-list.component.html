@@ -1,1 +1,62 @@
-<p>books-list works!</p>
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input
+             type="text"
+             class="form-control"
+             placeholder="Search by Name"
+             [(ngModel)]="name"
+            />
+            <div class="input-group append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  (click)="searchName()"
+                >
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h4>Books List</h4>
+        <ul class="list-group">
+            <li
+             class="list-group-item"
+             *ngFor="let book of books; let i = index"
+             [class.active]="i == currentIndex"
+             (click)="setActiveBook(book, i)" 
+            >
+              {{ book.name }}
+            </li>
+        </ul>
+        <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBooks()">
+          Remove All
+        </button>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentBook">
+            <h4>Book</h4>
+            <div>
+                <label for=""><strong>Title:</strong></label>{{ currentBook.name }}
+            </div>
+            <div>
+                <label for=""><strong>Description:</strong></label>
+                {{ currentBook.description }}
+            </div>
+            <div>
+                <label for=""><strong>Status:</strong></label>
+                {{ currentBook.sold ? "Sold" : "Pending" }}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/books/{{ currentBook.id }}" >
+              Edit
+            </a>
+        </div>
+
+        <div *ngIf="!currentBook">
+            <br />
+            <p>Please click on a Book...</p>
+        </div>
+    </div>
+</div>
