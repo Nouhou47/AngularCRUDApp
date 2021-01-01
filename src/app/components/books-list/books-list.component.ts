@@ -8,7 +8,12 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class BooksListComponent implements OnInit {
 
-  books: any;
+  //books: any;
+  books = [
+    {id: 1, name: "book1", description: "un bon livre", sold: true},
+    {id: 2, name: "book2", description: "un super livre", sold: true},
+    {id: 3, name: "book3", description: "un fameux livre", sold: false},
+  ];
   currentBook = null;
   currentIndex = -1;
   name = '';

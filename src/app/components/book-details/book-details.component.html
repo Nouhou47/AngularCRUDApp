@@ -1,1 +1,63 @@
-<p>book-details works!</p>
+<div style="width: 400px; margin: auto">
+    <div *ngIf="currentBook" class="edit-form">
+        <h4>Book</h4>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                 type="text"
+                 class="form-control"
+                 id="name"
+                 [(ngModel)]="currentBook.name"
+                 name="name"
+                 />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input
+                 type="text"
+                 class="form-control"
+                 id="description"
+                 [(ngModel)]="currentBook.description"
+                 name="description"
+                />
+            </div>
+
+            <div class="form-group">
+                <label><strong>Status:</strong></label>
+                {{ currentBook.sold ? "Sold" : "Pending" }}
+            </div>
+        </form>
+
+        <button
+          class="badge badge-primary mr-2"
+          *ngIf="currentBook.sold"
+          (click)="updateSold(false)"
+        >UnSold</button>
+
+        <button
+          class="badge badge-primary mr-2"
+          *ngIf="!currentBook.sold"
+          (click)="updateSold(true)"
+        >Sold</button>
+
+        <button class="badge badge-dabger mr-2" (click)="deleteBook()">
+            Delete
+        </button>
+
+        <button
+         type="submit"
+         class="badge badge-success"
+         (click)="updateBook()">
+            Update
+        </button>
+        <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!currentBook">
+        <br />
+        <p>Cannot access this Book...</p>
+    </div>
+</div>
+
+
